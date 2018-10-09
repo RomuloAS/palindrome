@@ -29,17 +29,44 @@ def getArgs():
     
     return parser.parse_args()
 
+def hyphenated(word):
+    """Test if it is a hyphenated word"""
+
+    found = False # True when find a symbol
+    word_corrected = ""
+    first = True # symbols in the first position
+    for letter in word:        
+        if letter.isalnum():
+            word_corrected += letter
+            found = False
+            first = False        
+        else:
+            if found:
+                return word_corrected[:-1]
+            if first:
+                continue
+            word_corrected += letter
+            found = True
+            first = False
+    else:
+        if found:
+            return word_corrected[:-1]    
+        
+    return word_corrected
+
 def searchPalindromes(args):
     """Search for palindromes in the text file."""
 
-    text = args.infile.read().lower()  
-    text = " ".join(text.split())
-    text = re.sub(r"\W+", " ", text)
+    text = args.infile.read()
     words = text.split()
-    palindromes = []
+    palindromes = []    
     
     for word in tqdm(words, ascii=True, desc="Searching for palindromes"):
-        if(len(word) > 1):         
+        print(word)
+        word = hyphenated(word)
+        print(word)
+        input()
+        if len(word) > 1:
             reverse = word[::-1]
             if word == reverse:
                 palindromes.append(word)
