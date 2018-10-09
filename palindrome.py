@@ -2,7 +2,6 @@ import argparse
 import re
 import sys
 from tqdm import tqdm
-import time
 
 """A palindrome is a word, phrase, number or other sequence of units that
 can be read the same way in either direction. E.g. the word level, the number 1234321, the
@@ -62,10 +61,7 @@ def searchPalindromes(args):
     palindromes = []    
     
     for word in tqdm(words, ascii=True, desc="Searching for palindromes"):
-        print(word)
-        word = hyphenated(word)
-        print(word)
-        input()
+        word = hyphenated(word.lower())
         if len(word) > 1:
             reverse = word[::-1]
             if word == reverse:
@@ -86,8 +82,6 @@ def writeFile(palindromes, args):
 
 
 if __name__ == "__main__":
-    start_time = time.time()
     args = getArgs()
     palindromes = searchPalindromes(args)
     writeFile(palindromes, args)
-    print("--- %s seconds ---" % (time.time() - start_time))
