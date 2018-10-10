@@ -8,8 +8,7 @@ A palindrome is a word, phrase, number or other sequence of units that can be re
 
 ## Prerequisites
 
-[Python 3][python]
-
+[Python 3][python]<br>
 [tqdm][tqdm]
 
 ```
@@ -23,14 +22,14 @@ pip install tqdm
 ```
 palindrome.py [-h] [-o OUTFILE] infile
 ```
-positional arguments:
+Positional arguments:
 
-`infile`              A file with a text to search for palindromes
+>`infile`              A file with a text to search for palindromes
 
-optional arguments:
+Optional arguments:
 
-`-h`, `--help`           show a help message
-`-o OUTFILE`, `--outfile OUTFILE`   Output file to save all palindromes found (*default:print on terminal*)
+>`-h`, `--help`           show a help message<br>
+>`-o OUTFILE`, `--outfile OUTFILE`   Output file to save all palindromes found (*default:print on terminal*)
 
 ```
 palindrome.py palindrome.txt -o palindromes_found.txt
