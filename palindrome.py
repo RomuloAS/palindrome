@@ -13,11 +13,20 @@ input and output files should be specified as command line arguments. Copy some 
 
 References:
 https://docs.python.org/3.7/library/argparse.html
-https://docs.python.org/3.7/library/re.html
+https://docs.python.org/3.7/library/sys.html
+https://github.com/tqdm/tqdm
 """
 
 def getArgs():
-    """Get arguments from terminal."""
+    """Get arguments from terminal
+
+    This function get arguments from terminal via argparse
+
+    Returns
+    -------------
+    arguments
+        Returns parse_args
+    """
 
     parser = argparse.ArgumentParser(description='It searches for all palindromes in the file.')
     parser.add_argument('infile', type=argparse.FileType('r'),
@@ -28,11 +37,25 @@ def getArgs():
     return parser.parse_args()
 
 def hyphenated(word):
-    """Test if it is a hyphenated word"""
+    """Remove special characters(non alphanumeric) from the string
 
-    found = False # True when find a symbol
+    This function remove all non alphanumeric characters from the string,
+    and it test if it is a hyphenated word.
+
+    Parameters
+    -------------
+    word : string
+        First argument
+
+    Returns
+    -------------
+    string
+        Returns word_corrected
+    """
+
+    found = False # True when find a non alphanumeric
     word_corrected = ""
-    first = True # symbols in the first position
+    first = True # check symbols in the first position
     for letter in word:        
         if letter.isalnum():
             word_corrected += letter
@@ -53,7 +76,22 @@ def hyphenated(word):
     return word_corrected
 
 def searchPalindromes(args):
-    """Search for palindromes in the text file."""
+    """Search for palindromes in the text file
+
+    This function search for palindromes in the text.
+    It searches for words, it does not search for phrases.
+
+
+    Parameters
+    -------------
+    args : arguments
+        First argument
+
+    Returns
+    -------------
+    list
+        Returns palindromes
+    """
 
     text = args.infile.read()
     words = text.split()
@@ -69,7 +107,19 @@ def searchPalindromes(args):
     return palindromes
 
 def writeFile(palindromes, args):
-    """Write all palindromes found to an output file."""
+    """Write all palindromes found to an output file
+
+    Write palindromes to an output file or to the terminal according
+    to the --output argument
+
+
+    Parameters
+    -------------
+    palindromes : list
+        First argument
+    args: argument
+        Second argument
+    """
 
     if len(palindromes) == 0:
         print("\nPalindrome not found\n")
