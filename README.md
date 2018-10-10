@@ -3,6 +3,7 @@
 Palindrome is a tool to find palindromes in a text. It searches for words, it does not search for phrases.
 
 A palindrome is a word, phrase, number or other sequence of units that can be read the same way in either direction. E.g. the word level, the number 1234321, the phrase Step on no pets.
+
 ---
 
 ## Prerequisites
@@ -26,6 +27,7 @@ positional arguments:
 
 optional arguments:
   **-h**, **--help**           show a help message
+  
   **-o OUTFILE**, **--outfile OUTFILE**   Output file to save all palindromes found (*default:print on terminal*)
 
 ```
