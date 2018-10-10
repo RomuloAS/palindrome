@@ -4,7 +4,7 @@ Palindrome is a tool to find palindromes in a text. It searches for words, it do
 
 A palindrome is a word, phrase, number or other sequence of units that can be read the same way in either direction. E.g. the word level, the number 1234321, the phrase Step on no pets.
 
----
+------
 
 ## Prerequisites
 
@@ -15,7 +15,8 @@ A palindrome is a word, phrase, number or other sequence of units that can be re
 ```
 pip install tqdm
 ```
----
+
+------
 
 ## Usage
 
@@ -23,18 +24,19 @@ pip install tqdm
 palindrome.py [-h] [-o OUTFILE] infile
 ```
 positional arguments:
-  **infile**              A file with a text to search for palindromes
+
+`infile`              A file with a text to search for palindromes
 
 optional arguments:
-  **-h**, **--help**           show a help message
-  
-  **-o OUTFILE**, **--outfile OUTFILE**   Output file to save all palindromes found (*default:print on terminal*)
+
+`-h`, `--help`           show a help message
+`-o OUTFILE`, `--outfile OUTFILE`   Output file to save all palindromes found (*default:print on terminal*)
 
 ```
 palindrome.py palindrome.txt -o palindromes_found.txt
 ```
----
 
+------
 
 [python]: https://www.python.org/
 [tqdm]: https://github.com/tqdm/tqdm
